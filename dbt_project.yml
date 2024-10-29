@@ -35,8 +35,12 @@ clean-targets:         # directories to be removed by `dbt clean`
 # continue to be built as views. These settings can be overridden in the individual model files
 # using the `{{ config(...) }}` macro.
 
+
+# dbt_project.yml
+
 models:
-  my_new_project:
-    # Applies to all files under models/example/
-    example:
+  my_new_project: # <-- make sure this value matches `project_name` on line 5
+    mart:
       +materialized: table
+      finance:
+        +schema: finance
